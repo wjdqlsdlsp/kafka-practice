@@ -54,8 +54,7 @@ delete.topic.enable = true
 
 
 # 카프카 실행
-/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/se
-rver.properties 
+/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties 
 ```
 
 
@@ -76,4 +75,31 @@ bin/kafka-topics.sh \
 ```shell
 bin/kafka-topics.sh --bootstrap-server [public 주소]:9092 --list
 ```
+
+
+
+#### Send message
+
+```shell
+bin/kafka-console-producer.sh \
+--broker-list [public 주소]:9092 \
+--topic order
+
+>hello
+>test1
+>message
+>^C%
+```
+
+
+
+#### 다른 터미널 창에서
+
+```shell
+bin/kafka-console-consumer.sh \
+--bootstrap-server [public 주소]:9092 \
+--topic order from-beginning
+```
+
+
 
